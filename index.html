@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101c35">
+  <meta name="description" content="EE Board Exam Reviewer — offline multiple-choice practice with explanations.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>EE Board Exam Reviewer</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="EE Board Reviewer home">
+        <span class="brand-mark">EE</span>
+        <span><strong>EE Board Reviewer</strong><small>Electrical Engineering</small></span>
+      </a>
+      <button id="themeBtn" class="icon-btn" aria-label="Toggle color theme" title="Toggle theme">◐</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">YOUR PERSONAL REVIEW ROOM</span>
+          <h1>Prepare with purpose.</h1>
+          <p>Practice the questions, understand the reasoning, and track your progress.</p>
+        </div>
+        <div class="hero-stat"><strong id="totalCount">108</strong><span>questions</span></div>
+      </section>
+
+      <section class="stats-grid" aria-label="Study statistics">
+        <article class="stat-card"><span class="stat-icon">✓</span><div><strong id="answeredCount">0</strong><small>Answered</small></div></article>
+        <article class="stat-card"><span class="stat-icon">★</span><div><strong id="correctCount">0</strong><small>Correct</small></div></article>
+        <article class="stat-card"><span class="stat-icon">◎</span><div><strong id="accuracyCount">0%</strong><small>Accuracy</small></div></article>
+      </section>
+
+      <nav class="tabs" aria-label="Main navigation">
+        <button class="tab active" data-view="practice">Practice</button>
+        <button class="tab" data-view="browse">Browse</button>
+        <button class="tab" data-view="progress">Progress</button>
+      </nav>
+
+      <section id="practiceView" class="view">
+        <div class="section-heading"><div><span class="eyebrow">STUDY MODE</span><h2>Question practice</h2></div><button id="shuffleBtn" class="secondary-btn">↻ Shuffle</button></div>
+        <div class="filter-row">
+          <label class="select-wrap"><span class="sr-only">Choose subject</span><select id="deckSelect"><option value="all">All subjects</option></select></label>
+          <span class="question-position" id="position">Question 1 of 108</span>
+        </div>
+        <article class="question-card">
+          <div class="question-meta"><span id="deckBadge" class="deck-badge">Circuits 1</span><button id="bookmarkBtn" class="bookmark-btn" aria-label="Bookmark question">☆ Save</button></div>
+          <div id="questionText" class="question-text">Loading question…</div>
+          <div id="options" class="options"></div>
+          <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+          <div class="question-actions"><button id="prevBtn" class="secondary-btn">← Previous</button><button id="nextBtn" class="primary-btn">Next question →</button></div>
+        </article>
+        <p class="keyboard-hint">Choose an option to reveal the answer and explanation. Your progress is saved on this device.</p>
+      </section>
+
+      <section id="browseView" class="view hidden">
+        <div class="section-heading"><div><span class="eyebrow">QUESTION LIBRARY</span><h2>Browse questions</h2></div></div>
+        <div class="browse-tools">
+          <input id="searchInput" type="search" placeholder="Search questions or explanations…" aria-label="Search questions">
+          <select id="browseDeck"><option value="all">All subjects</option></select>
+        </div>
+        <div id="questionList" class="question-list"></div>
+      </section>
+
+      <section id="progressView" class="view hidden">
+        <div class="section-heading"><div><span class="eyebrow">YOUR STUDY ACTIVITY</span><h2>Progress overview</h2></div></div>
+        <article class="progress-card">
+          <div class="progress-top"><div><span class="muted">Overall accuracy</span><h3 id="bigAccuracy">0%</h3></div><div class="progress-ring" id="progressRing"><span id="ringLabel">0%</span></div></div>
+          <div class="progress-bar"><span id="progressFill"></span></div>
+          <p class="muted" id="progressMessage">Answer questions to start building your study record.</p>
+        </article>
+        <h3 class="subheading">By subject</h3>
+        <div id="deckProgress" class="deck-progress"></div>
+        <div class="progress-actions"><button id="resetBtn" class="danger-btn">Reset study progress</button></div>
+      </section>
+    </main>
+    <footer><span>EE Board Exam Reviewer</span><span>Works offline after first load</span></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

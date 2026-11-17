@@ -1,0 +1,23 @@
+{
+  "name": "EE Board Exam Reviewer",
+  "short_name": "EE Reviewer",
+  "description": "Electrical Engineering board exam practice and explanations.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fc",
+  "theme_color": "#142c59",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
